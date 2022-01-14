@@ -12,7 +12,7 @@ local maple = function(opts)
     local display, hl_group = utils.transform_devicons(filename, text)
 
     if hl_group then
-      return display, { { { 1, 5 }, hl_group } }
+      return display, { { { 1, 3 }, hl_group } }
     else
       return display
     end
