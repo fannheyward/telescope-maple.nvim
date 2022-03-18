@@ -6,6 +6,8 @@ local pickers = require('telescope.pickers')
 
 ---@diagnostic disable-next-line: undefined-global
 local vim = vim
+local pcall = pcall
+local tonumber = tonumber
 
 local maple = function(opts)
   local make_display = function(filename, text)
@@ -32,7 +34,11 @@ local maple = function(opts)
         return
       end
 
-      local text = vim.json.decode(entry).text
+      local ok, obj = pcall(vim.json.decode, entry)
+      if not ok then
+        return
+      end
+      local text = obj.text
       if not text or text == "" then
         return
       end
