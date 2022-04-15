@@ -26,7 +26,7 @@ local maple = function(opts)
         return
       end
 
-      return {'maple', 'grep', prompt}
+      return { 'maple', 'grep', prompt }
     end,
 
     function(entry)
